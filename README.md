@@ -39,7 +39,7 @@ Runs every 6 hours via EventBridge. Full-refresh loads currently, incremental st
 ## Local Setup
 
 ```bash
-git clone https://github.com/Nidhi397/car-complaints-and-recalls-analysis
+git clone https://github.com/Nidhi397/Car-Complaints-and-Recalls-Analysis.git
 cd car-complaints-and-recalls
 python -m venv .venv
 .venv\Scripts\activate
