@@ -1,2 +1,79 @@
-# AWS-Learning-Project
-To reinforce learning from the AWS SAA certification with the help of a hands-on project.
+# Car Complaints and Recalls Analysis
+
+An end-to-end ETL data pipeline processing publicly available vehicle complaint and recall data from the [NHTSA Open Data API](https://api.nhtsa.gov) across 4 vehicle models for brands Toyota, Ford, and Tesla (2015–2025).
+
+Built as a personal learning project to demonstrate AWS data engineering and architecture decision-making. Non-commercial.
+
+> **Work in Progress** — The pipeline is functional end to end on AWS. Production-grade monitoring practices, robust sentiment analysis strategy, streaming, and BI layer coming in following weeks.
+
+---
+
+## Pipeline on AWS
+
+```
+Eventbridge has a recurring run schedule every 6 hours.
+```
+
+```
+NHTSA API → Lambda (ingest) → S3 raw → Lambda (trigger) → Glue (transform) → S3 processed → Athena
+```
+
+Runs every 6 hours via EventBridge. Full-refresh loads currently, incremental strategy in progress.
+
+---
+
+## Stack
+
+| Layer | Service |
+|-------|---------|
+| Ingestion | AWS Lambda |
+| Storage | S3 (1 bucket for raw + 1 bucket for processed) |
+| Transform | AWS Glue Python Shell |
+| Catalog | AWS Glue Data Catalog |
+| Query | Amazon Athena |
+| Schedule | Amazon EventBridge |
+| Monitoring | Amazon CloudWatch |
+
+---
+
+## Local Setup
+
+```bash
+git clone https://github.com/Nidhi397/car-complaints-and-recalls-analysis
+cd car-complaints-and-recalls
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Run locally:
+
+```bash
+python src/ingestion.py   # pull data from NHTSA API
+python src/validate.py          # data quality checks
+python src/transform.py         # clean and transform
+python src/analysis.py          # run analysis queries
+```
+
+---
+
+## Analysis
+
+Questions answered via Athena currently:
+
+- Which brands and models generate the most complaints and recalls?
+- What proportion of each brand's complaints does each model account for?
+
+SQL in `queries/` folder.
+
+---
+
+## Data Ethics
+
+All data is publicly available from the NHTSA — a US federal government open data initiative. No proprietary data, no commercial use, no AI model training. Built in personal time.
+
+---
+
+## License
+
+MIT
