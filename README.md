@@ -80,7 +80,7 @@ SQL in `queries/` folder.
 
 ## Data Ethics
 
-All data is publicly available from the NHTSA — a US federal government open data initiative. No proprietary data, no commercial use, no AI model training. Built in personal time.
+All data is publicly available from the NHTSA — a US federal government open data initiative. No proprietary data, no commercial use. Built in personal time.
 
 ---
 
