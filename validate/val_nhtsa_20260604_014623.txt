@@ -1,0 +1,154 @@
+NHTSA Complaints and Recalls Validation Report
+Generated : 2026-06-05T06:47:37.523283+00:00
+Source files : nhtsa_20260604_014623.json
+
+===========================================================================
+FULL FIELD REPORT
+===========================================================================
+Total records : 34272
+Total columns : 19
+Sources       : {'nhtsa_complaints': 33163, 'nhtsa_recalls': 1109}
+Makes         : {'Ford': 20368, 'Toyota': 8668, 'Tesla': 5236}
+
+------------------------------------------------------------------
+Field              Total   Nulls   Empty  Missing%   Dupes  Dtype
+------------------------------------------------------------------
+record_id          34272       0       0      0.0%     737  str
+source             34272       0       0      0.0%   34270  str
+source_weight      34272       0       0      0.0%   34270  float64
+make               34272       0       0      0.0%   34269  str
+model              34272       0       0      0.0%   34258  str
+year               34272       0       0      0.0%   34261  int64
+component          34272       0       0      0.0%   33211  str
+body               34272       0   33163     96.8%   33903  str  ✗ HIGH
+incident_date      34272    1109       0      3.2%   30286  str
+crash_involved     34272    1109       0      3.2%   34269  object
+fire_involved      34272    1109       0      3.2%   34269  object
+injuries           34272    1109       0      3.2%   34260  float64
+deaths             34272    1109       0      3.2%   34267  float64
+scraped_at         34272       0       0      0.0%       0  str
+week_added         34272       0       0      0.0%   34271  int64
+consequence        34272   33163       0     96.8%   33944  str  ✗ HIGH
+remedy             34272   33163       0     96.8%   33899  str  ✗ HIGH
+recall_date        34272   33163       0     96.8%   33995  str  ✗ HIGH
+units_affected     34272   33163       0     96.8%   34270  float64  ✗ HIGH
+------------------------------------------------------------------
+
+===========================================================================
+IDENTITY KEY CHECKS
+===========================================================================
+
+[ record_id ]
+  Null         : 0
+  Empty prefix : 0  (prefix exists but no value after it)
+
+[ Full row duplicates ]
+  Exact duplicate rows : 0
+  ✓ No exact duplicate rows found
+
+===========================================================================
+DATE FIELD CHECKS
+===========================================================================
+
+[ scraped_at ] — source: all
+  Total   : 34272
+  Null    : 0
+  Empty   : 0
+  Missing : 0 (0.0%)
+  Sample  : 2026-06-04T01:43:01.797393+00:00
+
+[ incident_date ] — source: nhtsa_complaints
+  Total   : 33163
+  Null    : 0
+  Empty   : 0
+  Missing : 0 (0.0%)
+  Sample  : 12/05/2025
+
+[ recall_date ] — source: nhtsa_recalls
+  Total   : 1109
+  Null    : 0
+  Empty   : 0
+  Missing : 0 (0.0%)
+  Sample  : 13/03/2015
+
+===========================================================================
+DESCRIPTION FIELD CHECKS
+===========================================================================
+
+[ body ] — source: all
+  Total      : 34272
+  Null       : 0
+  Empty      : 33163
+  Missing    : 33163 (96.8%)
+  Avg length : 343 chars
+  Min length : 111 chars
+  Max length : 1007 chars
+  Sample     : Toyota Motor Engineering & Manufacturing (Toyota) is recalling certain model year 2015 Camry, Camry Hybrid, Highlander, ...
+  ⚠ WARNING: 96.8% missing — sentiment scoring will have gaps
+
+[ consequence ] — source: nhtsa_recalls
+  Total      : 1109
+  Null       : 0
+  Empty      : 0
+  Missing    : 0 (0.0%)
+  Avg length : 131 chars
+  Min length : 44 chars
+  Max length : 423 chars
+  Sample     : An unexpected loss of power steering increases the risk of a crash....
+
+[ remedy ] — source: nhtsa_recalls
+  Total      : 1109
+  Null       : 0
+  Empty      : 0
+  Missing    : 0 (0.0%)
+  Avg length : 311 chars
+  Min length : 151 chars
+  Max length : 791 chars
+  Sample     : Toyota will notify owners, and dealers will inspect the serial number of the EPS ECU or steering column assembly.   If t...
+
+===========================================================================
+NUMERIC ANOMALY CHECKS
+===========================================================================
+
+[ injuries ]
+  Null          : 1109
+  Type errors   : 0  (non-numeric strings coerced to null)
+  Negatives     : 0  (expected >= 0)
+  Outliers      : 0  (expected <= 1000)
+
+[ deaths ]
+  Null          : 1109
+  Type errors   : 0  (non-numeric strings coerced to null)
+  Negatives     : 0  (expected >= 0)
+  Outliers      : 0  (expected <= 100)
+
+[ units_affected ]
+  Null          : 33163
+  Type errors   : 0  (non-numeric strings coerced to null)
+  Negatives     : 0  (expected >= 0)
+  Outliers      : 0  (expected <= 10000000)
+
+===========================================================================
+MAKE NORMALISATION CHECKS
+===========================================================================
+
+[ Raw make values found in data ]
+  'Ford' — 20368 records
+  'Tesla' — 5236 records
+  'Toyota' — 8668 records
+
+  Total unique make variants : 3
+  → Map each variant to a make_code in transform.py
+
+===========================================================================
+RECORD COUNT SUMMARY
+===========================================================================
+          source   make  record_count
+nhtsa_complaints   Ford         19848
+nhtsa_complaints  Tesla          4765
+nhtsa_complaints Toyota          8550
+   nhtsa_recalls   Ford           520
+   nhtsa_recalls  Tesla           471
+   nhtsa_recalls Toyota           118
+
+Validation complete.

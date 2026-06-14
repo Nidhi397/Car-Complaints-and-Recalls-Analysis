@@ -1,0 +1,15 @@
+make,model,recall_count,total_units_affected,avg_units_per_recall
+FORD,Explorer,165,0.0,0.0
+FORD,F-150,162,0.0,0.0
+FORD,Escape,112,0.0,0.0
+FORD,Mustang,74,0.0,0.0
+FORD,Fiesta,7,0.0,0.0
+TESLA,Model 3,130,0.0,0.0
+TESLA,Model S,125,0.0,0.0
+TESLA,Model X,125,0.0,0.0
+TESLA,Model Y,91,0.0,0.0
+TOYOTA,RAV4,37,0.0,0.0
+TOYOTA,Camry,29,0.0,0.0
+TOYOTA,Prius,24,0.0,0.0
+TOYOTA,Corolla,22,0.0,0.0
+TOYOTA,C-HR,6,0.0,0.0

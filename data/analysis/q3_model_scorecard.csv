@@ -1,0 +1,14 @@
+make,model,complaint_count,recall_count,units_affected,recall_to_complaint_pct
+FORD,Escape,8867,112,0.0,1.26
+FORD,Explorer,8686,165,0.0,1.9
+FORD,Mustang,1662,74,0.0,4.45
+FORD,Fiesta,633,7,0.0,1.11
+TESLA,Model 3,3987,130,0.0,3.26
+TESLA,Model Y,353,91,0.0,25.78
+TESLA,Model S,305,125,0.0,40.98
+TESLA,Model X,120,125,0.0,104.17
+TOYOTA,RAV4,3484,37,0.0,1.06
+TOYOTA,Camry,2369,29,0.0,1.22
+TOYOTA,Corolla,1662,22,0.0,1.32
+TOYOTA,Prius,590,24,0.0,4.07
+TOYOTA,C-HR,445,6,0.0,1.35

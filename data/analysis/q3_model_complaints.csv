@@ -1,0 +1,14 @@
+make,model,complaint_count,crash_count,crash_rate_pct
+FORD,Escape,8867,185.0,2.09
+FORD,Explorer,8686,196.0,2.26
+FORD,Mustang,1662,90.0,5.42
+FORD,Fiesta,633,49.0,7.74
+TESLA,Model 3,3987,387.0,9.71
+TESLA,Model Y,353,71.0,20.11
+TESLA,Model S,305,16.0,5.25
+TESLA,Model X,120,11.0,9.17
+TOYOTA,RAV4,3484,280.0,8.04
+TOYOTA,Camry,2369,238.0,10.05
+TOYOTA,Corolla,1662,296.0,17.81
+TOYOTA,Prius,590,79.0,13.39
+TOYOTA,C-HR,445,16.0,3.6

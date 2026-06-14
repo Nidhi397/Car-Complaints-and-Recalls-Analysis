@@ -1,0 +1,4 @@
+make,complaint_count,recall_count,recall_to_complaint_pct,total_units_affected
+TESLA,4765,471,9.88,0.0
+FORD,19848,520,2.62,0.0
+TOYOTA,8550,118,1.38,0.0
