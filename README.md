@@ -68,6 +68,16 @@ SQL in `queries/` folder.
 
 ---
 
+## Architecture Tradeoffs
+
+| Decision | Choice | Why |
+|----------|--------|-----|
+| Transform layer | Glue Python Shell over Lambda | Lambda 250MB package limit exceeded by pandas + PyArrow. Glue has no size limit, built-in dependencies, and a clean PySpark upgrade path for week 3 |
+| Storage format | Parquet over CSV | Schema enforcement, columnar compression, and Athena cost control via partition pruning. Overkill at 35k records — chosen to establish the correct production pattern |
+| Lambda architecture | ARM for ingestion, x86 for transform | ARM is 20% cheaper for pure Python workloads. x86 chosen for transform due to PyArrow binary compatibility when packaging on Windows |
+| Orchestration | EventBridge over Step Functions | Linear single-job pipeline — full orchestration is overkill at week 1. Step Functions upgrade planned post week 1 |
+| IAM design | Least privilege custom policies over managed | Scoped to specific bucket prefixes and job ARNs — no AmazonS3FullAccess anywhere |
+
 ## Data Ethics
 
 All data is publicly available from the NHTSA — a US federal government open data initiative. No proprietary data, no commercial use, no AI model training. Built in personal time.
